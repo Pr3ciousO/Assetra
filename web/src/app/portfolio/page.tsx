@@ -3,8 +3,9 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Portfolio } from "@/components/portfolio/Portfolio";
 import { NotDeployed } from "@/components/ui/NotDeployed";
 import { deployment } from "@/lib/config";
+import { pageMetadata } from "@/lib/pages";
 
-export const metadata: Metadata = { title: "Portfolio" };
+export const metadata: Metadata = pageMetadata("portfolio");
 
 export default function PortfolioPage() {
   return (

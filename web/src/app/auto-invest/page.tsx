@@ -5,8 +5,9 @@ import { PlanList } from "@/components/plans/PlanList";
 import { NotDeployed } from "@/components/ui/NotDeployed";
 import { Reveal } from "@/components/ui/Reveal";
 import { deployment } from "@/lib/config";
+import { pageMetadata } from "@/lib/pages";
 
-export const metadata: Metadata = { title: "Auto-Invest" };
+export const metadata: Metadata = pageMetadata("autoInvest");
 
 export default function AutoInvestPage() {
   return (

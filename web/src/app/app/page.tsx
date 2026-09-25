@@ -7,8 +7,9 @@ import { Reserves } from "@/components/index/Reserves";
 import { NotDeployed } from "@/components/ui/NotDeployed";
 import { Reveal } from "@/components/ui/Reveal";
 import { deployment } from "@/lib/config";
+import { pageMetadata } from "@/lib/pages";
 
-export const metadata: Metadata = { title: "Frontier Index" };
+export const metadata: Metadata = pageMetadata("index");
 
 export default function IndexPage() {
   return (

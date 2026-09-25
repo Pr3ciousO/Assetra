@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Grain } from "@/components/ui/Grain";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { PAGES, SITE_NAME, SITE_URL, pageMetadata } from "@/lib/pages";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -16,10 +17,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Assetra — Own the frontier", template: "%s · Assetra" },
-  description:
-    "The Frontier Index: one token, fully backed by Tessera pre-IPO T-Tokens (OpenAI, SpaceX, Kalshi). Invest once or on autopilot. Redeem any time. Built on Solana.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  ...pageMetadata("home"),
+  title: { default: PAGES.home.title, template: `%s · ${SITE_NAME}` },
+  metadataBase: SITE_URL,
 };
 
 export const viewport: Viewport = { themeColor: "#000000", colorScheme: "dark" };
