@@ -3,6 +3,7 @@
  *  - mirrors Tessera mark prices into the demo desk's price feeds
  *  - executes due Auto-Invest plans (earning the keeper tip)
  *  - records NAV snapshots for the web chart
+ *  - serves `/` and `/health` so it can run as a web service kept awake by an uptime pinger
  */
 import "dotenv/config";
 import {
@@ -16,6 +17,7 @@ import {
 import { Connection, Keypair, Transaction, sendAndConfirmTransaction, type TransactionInstruction } from "@solana/web3.js";
 import { Redis } from "@upstash/redis";
 import { readFileSync } from "node:fs";
+import { createServer } from "node:http";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -117,15 +119,24 @@ async function snapshotNav() {
   log(`nav $${nav.toFixed(4)}${redis ? "" : " (no redis: not stored)"}`);
 }
 
+type JobState = { everyMs: number; runs: number; lastOk: string | null; lastError: string | null; lastErrorAt: string | null };
+const jobs: Record<string, JobState> = {};
+const startedAt = Date.now();
+
 function every(ms: number, name: string, fn: () => Promise<void>) {
   let running = false;
+  const state: JobState = (jobs[name] = { everyMs: ms, runs: 0, lastOk: null, lastError: null, lastErrorAt: null });
   const tick = async () => {
     if (running) return;
     running = true;
     try {
       await fn();
+      state.runs++;
+      state.lastOk = new Date().toISOString();
     } catch (e) {
-      log(`${name} error:`, (e as Error).message);
+      state.lastError = (e as Error).message;
+      state.lastErrorAt = new Date().toISOString();
+      log(`${name} error:`, state.lastError);
     } finally {
       running = false;
     }
@@ -138,3 +149,34 @@ log(`keeper ${keeper.publicKey.toBase58()} on ${cluster}`);
 every(PRICE_EVERY_MS, "prices", syncPrices);
 every(PLANS_EVERY_MS, "plans", runDuePlans);
 every(NAV_EVERY_MS, "nav", snapshotNav);
+
+// Health endpoints: always 200 while the process is up, with job status in the body.
+const server = createServer((req, res) => {
+  const path = (req.url ?? "/").split("?")[0];
+  if (path !== "/" && path !== "/health") {
+    res.writeHead(404, { "content-type": "application/json" }).end(JSON.stringify({ error: "not found" }));
+    return;
+  }
+  const body =
+    path === "/"
+      ? { service: "assetra-keeper", status: "ok", cluster, health: "/health" }
+      : {
+          status: "ok",
+          cluster,
+          keeper: keeper.publicKey.toBase58(),
+          uptimeSecs: Math.floor((Date.now() - startedAt) / 1000),
+          redis: !!redis,
+          jobs,
+        };
+  res.writeHead(200, { "content-type": "application/json", "cache-control": "no-store" }).end(JSON.stringify(body));
+});
+const port = Number(process.env.PORT) || 8787;
+server.listen(port, () => log(`health on :${port} (/ and /health)`));
+
+for (const sig of ["SIGTERM", "SIGINT"] as const) {
+  process.on(sig, () => {
+    log(`${sig}: shutting down`);
+    server.close(() => process.exit(0));
+    setTimeout(() => process.exit(0), 3000).unref();
+  });
+}
