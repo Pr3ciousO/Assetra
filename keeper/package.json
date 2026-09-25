@@ -1,0 +1,22 @@
+{
+  "name": "@assetra/keeper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "e2e": "tsx scripts/e2e.ts"
+  },
+  "dependencies": {
+    "@assetra/sdk": "workspace:*",
+    "@solana/web3.js": "^1.98.0",
+    "@upstash/redis": "^1.39.0",
+    "dotenv": "^17.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

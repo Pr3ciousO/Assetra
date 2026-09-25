@@ -1,0 +1,7 @@
+{
+  "name": "T-SpaceX (Demo)",
+  "symbol": "T-SpaceX",
+  "description": "Devnet demo mirror of Tessera's T-SpaceX (mainnet mint TSPXcLV76s6V2zDiZQ18kBfcbnjaE2ZzNT3ga2Pd99v). No value.",
+  "image": "https://assetra.vercel.app/markets/t-spacex.svg",
+  "external_url": "https://assetra.vercel.app"
+}

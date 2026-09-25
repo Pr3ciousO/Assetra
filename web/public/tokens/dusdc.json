@@ -1,0 +1,7 @@
+{
+  "name": "Demo USD Coin",
+  "symbol": "dUSDC",
+  "description": "Assetra devnet demo stablecoin. No value.",
+  "image": "https://assetra.vercel.app/markets/usdc.png",
+  "external_url": "https://assetra.vercel.app"
+}

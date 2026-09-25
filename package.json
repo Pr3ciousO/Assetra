@@ -1,0 +1,12 @@
+{
+  "name": "assetra",
+  "private": true,
+  "packageManager": "pnpm@12.3.4",
+  "scripts": {
+    "dev": "pnpm --filter @assetra/web dev",
+    "build": "pnpm --filter @assetra/sdk build && pnpm --filter @assetra/web build",
+    "anchor:build": "cd anchor && anchor build",
+    "anchor:test": "pnpm --filter @assetra/anchor test",
+    "keeper": "pnpm --filter @assetra/keeper start"
+  }
+}

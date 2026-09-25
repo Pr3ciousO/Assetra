@@ -1,0 +1,7 @@
+{
+  "name": "Frontier Index",
+  "symbol": "FRNT",
+  "description": "A fully backed pre-IPO index token. Each FRNT is backed in kind by a fixed basket of Tessera T-Tokens (T-OpenAI, T-SpaceX, T-Kalshi) held in an on-chain vault. Devnet demo.",
+  "image": "https://assetra.vercel.app/tokens/frnt.png",
+  "external_url": "https://assetra.vercel.app"
+}

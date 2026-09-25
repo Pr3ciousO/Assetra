@@ -1,0 +1,58 @@
+{
+  "cluster": "localnet",
+  "rpcUrl": "http://127.0.0.1:8899",
+  "assetraProgram": "6GTtJo5knveEYPkgHxTdykFtzT4ftwrGBbcGZq8cyZ6r",
+  "deskProgram": "H3Muxe6s3UwdhYCNg7zonSgjCYA3gwmtAiCCJQXcdgvf",
+  "desk": "FWZJDznqjABdABKDwMmZbSRYrRNoxf8i53aWrvrdshHB",
+  "usdcMint": "ixfVEkxk9PquBox75bPwcxQGKmgGLDKUGBfV6Ltvg1A",
+  "indexSymbol": "FRNT",
+  "indexName": "Frontier Index",
+  "index": "A3rhBYbXtR1sz437bG9KRjFw3FNBERAYBGwGHJYa1QnP",
+  "indexMint": "DUABAkxwCPcLngb99NJfpuakKVF55Hv5DGuFaba9W41d",
+  "treasury": "B5Rev4S1PeahNsYB73cPVr141FZvP1otSe2wc8d2mwKw",
+  "launchNavMicro": "100000000",
+  "mintFeeBps": 30,
+  "redeemFeeBps": 30,
+  "components": [
+    {
+      "symbol": "T-OpenAI",
+      "tesseraId": "T-OpenAI",
+      "name": "T-OpenAI",
+      "sector": "Artificial Intelligence",
+      "mint": "5kv4i6hJEqG6kfhNTNnxHxKdEo6kspwBGRtCydX7K8eW",
+      "realMint": "oPAiAikWTaFj9RYoRFD35ccfwhnMcB3ThgBZRHSkjTZ",
+      "vault": "EN6mzLWwP2MdBXFj217aRybstPHLSMzazKCXCwv1fqrF",
+      "feed": "Aw1Gb1wVEX42n8wUGRi1RFgwaYvs46GK7si7X1rKahjU",
+      "units": "55364854",
+      "decimals": 9,
+      "weightBps": 4500
+    },
+    {
+      "symbol": "T-SpaceX",
+      "tesseraId": "T-SpaceX",
+      "name": "T-SpaceX",
+      "sector": "Aerospace",
+      "mint": "CQfAgkS6mZUpX6xZgmEtU48pH7KcqUYnSteo228xVVv3",
+      "realMint": "TSPXcLV76s6V2zDiZQ18kBfcbnjaE2ZzNT3ga2Pd99v",
+      "vault": "Er9HjbqYb5ppomS7bSmAhy6tN5Y8NDPnsVzAhpXp1yBy",
+      "feed": "AVxdZHMgc98KCYaAhHntNK4XjtDVx7a2fbBp13oiigHU",
+      "units": "94562647",
+      "decimals": 9,
+      "weightBps": 4000
+    },
+    {
+      "symbol": "T-Kalshi",
+      "tesseraId": "T-Kalshi",
+      "name": "T-Kalshi",
+      "sector": "Prediction Markets",
+      "mint": "pyf9twAdzYFKtcDGdfHeskMe9KgwZEqmXqdk8kh2VTr",
+      "realMint": "TKLSidmLVt3cqGaaodG8tyRzoANfQwoh67AccjmubeZ",
+      "vault": "7t8HodPupfxqicXaJLUzqJyTSFsL2huHy8BjNSKvsE21",
+      "feed": "GR4mbjoQkpkhs1o135h3msqgs2QvwLFNeTE7YJ3CSKdB",
+      "units": "36249395",
+      "decimals": 9,
+      "weightBps": 1500
+    }
+  ],
+  "createdAt": "2026-09-25T03:53:10.588Z"
+}

@@ -1,0 +1,23 @@
+node_modules/
+.pnpm-store/
+.DS_Store
+
+# env / secrets
+.env
+.env.*
+!.env.example
+wallets/
+
+# anchor / rust
+anchor/target/
+anchor/.anchor/
+anchor/test-ledger/
+
+# next
+web/.next/
+web/out/
+*.tsbuildinfo
+next-env.d.ts
+
+# builds
+dist/

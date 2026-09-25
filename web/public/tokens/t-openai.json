@@ -1,0 +1,7 @@
+{
+  "name": "T-OpenAI (Demo)",
+  "symbol": "T-OpenAI",
+  "description": "Devnet demo mirror of Tessera's T-OpenAI (mainnet mint oPAiAikWTaFj9RYoRFD35ccfwhnMcB3ThgBZRHSkjTZ). No value.",
+  "image": "https://assetra.vercel.app/markets/t-openai.svg",
+  "external_url": "https://assetra.vercel.app"
+}
